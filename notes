@@ -1,0 +1,43 @@
+VO
+
+social media analysis
+------
+text analysis through posts, articles,..
+preprocess text and analyse on topics, sentiments, keywords
+
+semantic analysis
+meaning from text
+discover thematic structure from corpus
+and annotate what it is about
+
+topic modeling
+discover topics
+model like LDA latent dirichlet allocation
+analyses docs to discover topics
+
+LDA
+unsupervised
+man gibt nur anzahl der themen die man haben möchte an
+
+k = num topics i want to have
+beta = wv themen ein doc zugewiesen werden kann
+...
+
+sentiment analysis
+irony, love like hate,... ambiguity
+how do machines understand this kind of content
+
+
+LSTM vs Transformer
+transformer current state of the art
+
+BERT with encoder decoder
+
+geospatial analysis
+kernel density, where are more tweets as an example
+flüchtlingsströme lokalisieren zum beispiel
+
+hotspot = werte drumherum haben auch hohe werte, gewichtung erfolgt dadurch
+paper: "Spatio-temporal machine learning analysis of social media data and refugee movement statistics"
+
+
