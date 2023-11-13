@@ -41,3 +41,11 @@ hotspot = werte drumherum haben auch hohe werte, gewichtung erfolgt dadurch
 paper: "Spatio-temporal machine learning analysis of social media data and refugee movement statistics"
 
 
+
+
+
+titanic
+decision tree max depth
+gini index to indetify how pure the branch, je kleiner desto klarer was das ergebnis ist in diesem branch
+hotspot = werte drumherum haben auch hohe werte, gewichtung erfolgt dadurch
+
