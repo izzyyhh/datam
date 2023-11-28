@@ -43,9 +43,126 @@ paper: "Spatio-temporal machine learning analysis of social media data and refug
 
 
 
-
 titanic
 decision tree max depth
 gini index to indetify how pure the branch, je kleiner desto klarer was das ergebnis ist in diesem branch
 hotspot = werte drumherum haben auch hohe werte, gewichtung erfolgt dadurch
+
+
+
+VO
+
+neuronale netzwerke gehirn als vorbild
+universell einsetzbar (supervised, unsupervised,...)
+
+Deep Learning vs neuronale netzwerke
+    neuronale netzwerke mit mehr als 2 layer ist deep learning
+
+Deep learning unterschied zb zur linearen regression, lr input output
+deep learning input output von layer zu layer wird übeergeben an anderen zum weiterverarbeiten dann output
+
+
+neuronale netzwerke brauchen viel daten
+neuronale netzwerke adaptieren sich gut
+
+xg boost is competitor zu nn (auch faktorisierungsmaschine?)
+
+features von neural networks schwer nachzuvollziehen
+explainability issues
+
+nn can be used for all multimedia data and numeric data
+for
+    image recognition
+    speech processing
+    natural language processing
+    ....
+
+for nn you have not to preprocess, but leads to better results
+nn versteht selber welche features er erstellt und hernimmt
+
+paper: random seed optimization with nn
+
+neural netzwerk als basis lineare regression
+
+fnn(x) = f3(f2(f1(x))) kette
+
+
+
+aufbau
+    Input layer | Hidden Layer (Neuronen) | Output Layer
+
+
+activation function
+    chaining linear regressions is not sufficient
+    sigmoid, tanh, ReLu (eig nicht ableitbar aber geht)
+    man kann selbst eine definieren zum aktivieren von Neuronen
+    gradient
+    in den hidden layers
+
+brauchen ableitbare funktionen, weil wir stetig ableiten
+
+wie funktioniert das optimieren in nn?
+mit activation function und gradient
+
+die anpassung der weights passiert erst am ende
+man lässt durchlaufen, der fehler kann sich durchziehen
+
+nicht linear machen mit der aktivierungsfunktion
+
+im Output layer:
+for classification Softmax wertebereich zw 0,1, prozente kommen raus
+for regression W * x + b
+
+
+loss function
+for classification: cross entropy
+for regression: MSE
+fehler wird dem anderen layer übergeben,       zum gradient
+
+convolotuional für image und text, cross correlation
+lstms für sequenzen, zeit zb
+
+Rekonstruktionsfehler bei Autoencoders
+input und output soll gleich sein
+
+nn sind sehr complex und passen sich gut an die daten an, overfitting issues
+nicht zu viel freiheit geben
+
+regularization
+man kann koeffizienten eine grenze geben, damit nn sich nicht perfekt anpasst
+lasso und ridge
+lasso erzeugt sparse model, viele parameter auf 0 gesetzt
+
+
+
+
+dimensionsreduktion
+
+tSNE
+PCA
+
+PCA möcht Varianz erhalten, struktur kann sich ändern (wegen average werte)
+tSNE lokale und globale struktur der daten erhalten
+gleiche verteilung erzielen in einer niedrigen dimension
+
+tSNE auch visuell
+nachbarschaft pro punkt perplexity gute werte sind 20 bis 100
+nicht deterministisch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
