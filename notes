@@ -150,19 +150,20 @@ nachbarschaft pro punkt perplexity gute werte sind 20 bis 100
 nicht deterministisch
 
 
+VO
+generative ai
+es muss kein model sein das man trainiert
+es generiert, keine prediction, regression, classification
 
+generieren jegliche art von data
 
+discriminative ai and generative ai
+wir haben bisher discriminative ai verwendet
 
-
-
-
-
-
-
-
-
-
-
-
+bsp genAI
+- autoencoder (compression bsp) input = output, mit normalverteilung auf latenten space, neuer output, bisschen zufall reinstreuen
+- generative adversarial network (GAN), 2 nns, 1nn versucht fälschungen zu erstellen, 1nn versucht fälschungen zu erkennen, generator and discriminator
+    GAN bad for large images
+- diffusion models
 
 
