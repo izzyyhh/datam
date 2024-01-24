@@ -166,3 +166,505 @@ bsp genAI
     GAN bad for large images
 - diffusion models
 
+
+
+
+---------------------
+Lernen für die Klausur
+
+Machine learning definitions
+
+Machine learning is the field of
+study that gives computers the ability to learn without being explicitly
+programmed.
+
+A computer program is said to learn from
+experience E with respect to some class of tasks T and performance measure
+P if its performance at tasks in T, as measured by P, improves with experience
+E.
+
+Machine learning is a subset of
+artificial intelligence that uses mathematical models and algorithms to help
+computers learn from data patterns and make predictions. It becomes more
+accurate as it gains more experience and data, similar to human learning
+through practice.
+
+
+Machine learning is great for:
+• Problems where a lot of hand-tuning or long lists of rules are needed.
+• Complex problems where traditional approaches cannot find a good solution.
+• Fluctuating environments: a machine learning system can adapt.
+• Getting insights about complex problems and large amounts of data.
+
+
+Don't need to adapt rules in program cuz machine learning models can be retrained with new data
+
+Difference to AI
+	Unlike AI, which can be rule-based,
+	ML is all about data-driven learning
+	and adaptation.
+
+	Artificial intelligence includes
+	various techniques, while machine
+	learning is a part of AI that focuses
+	on algorithms and models learning
+	from data.
+
+Types of machine learning	
+
+Supervised
+Unsupervised
+Semi-supervised
+Reinforcement
+
+
+Supervised
+	dataset is labelled
+	label is class or real number (classification or regression)
+	aim is to deduce label from feature vector 
+
+Unsupervised
+	Unlabelled examples
+	transforms data into another vector or value
+		clustering with id of cluster
+		dimensional reduction
+		outlier detection, similarly to typical examples
+	finding groups in datasets
+	reducing dimensions without losing much information
+
+Semi-supervised
+	both labeled and unlabeled
+	unlabelled data higher
+	at some point machine learning algorithms can label itself
+
+Reinforcement
+	where an agent learns how to behave in environment by performing actions
+	receives feedback such as rewards or penalties 
+	has current state of env as feature vector, input
+	has set of actions
+	policy is strategy of agent, output is action
+	maximise average reward
+	robots, bots in games etc
+	
+
+Supervised learning
+	linear regression
+		can do classification but not good at it as it likely does not output 				probabilities and it treats classes as numbers
+		produces value +-
+		meaningful threshold?
+		hard for multiple classes
+
+	logistic regression
+		probability for binary classification, extension of linear regression
+		it's in fact not regression
+		um relation logic von p berechnen
+		can have multi class
+		hard to interprete
+		if there is feature that perfectly distunighes classes, cannot be trained
+		
+	decision tree
+		classification and regression
+		each node decides examines value, leaf node has class
+		for regression the predictor space is split into regions, distinct nonoverlaping
+		if feature falls into region then has value as result
+		top down construction in recursion
+		each iteration selectst attribute to split according to impurity,
+		is pure if all subset data belong to that class
+		Stopping criteria:
+			• All instances for a given node belong to the same class
+			• No more attributes to select for further partitioning
+			• No examples (data instances) left
+		branch with every possible value is added
+		then examples are added to that branch value, label is most common 
+		GINI index to select the attribute for splitting the dataset
+		GINI can be calculated after each split, GINI of subset, pure or impure
+		0 is pure, 1 is impure,
+		evenly distributed dann 1, kein gutes Attribut oder split
+		0 alles gehört in einer klasse, guter split
+		entropy wird auch verwendet, homogeneity of a node
+			max log n when evenly distributed
+			min 0 records alle in einer klasse
+		entropy similar to GINI
+		information gain is difference of entropy before and after split
+		take attribute split with highest gain
+		GINI and Information gain kinda the same performance
+		simple
+		graphically
+		small change of data, big impact
+		lower accuracy than others
+
+
+---
+
+
+Social Media Analysis
+Text -> preprocess -> sentiments, topics, keywords, entities
+
+Semantic analysis -> 	meaning from text, thematic structure from corpus, annotate documents  				for organization as example
+
+Topic Modeling ->	discover topics of large unstructured collection of documents
+			LDA on bayesian modeling
+			topic assignment helps to organize understand and search docs Big Data
+			LDA probabilistic model
+			K number of topics
+			alpha beta, wv topics pro doc, wv word für ein topic
+			iterations,
+			due to stochastic nature and randomness not same result
+			random init of topics and words in docs
+			Markov chains, involve random sampling
+
+
+Sentiment analysis ->	determine if text expresses positive negative or neutral sentiment
+			examples, she looks so good
+			need to vectorize, similar words challenges, sarcasm, ambiguity,
+			double negation
+			N-dimensional word vector spaces, nn, bidirectional lists
+			LSTM good for contextual info, remember prev inputs
+			slow, transformer is faster
+			not really bidirectional, separated context training
+				transformer really bidirectional, bot direction simultaneously
+		
+BERT bidirectional encoder representations from transformer
+	encoder embeds words, information as numbers, learns to represent language and its 		context in numbers
+	decoder maps encoders input to task specific output, translation, answering questions
+	pre training maskedLanguageModel: 15 % words masked, should predict
+	pretraining nextSentence prediciton, pairs split, 50% correct followup
+	ensure variety in data being trained with, more flexible
+	can be fine-tuned, adding layers, and train again
+
+
+
+Geoanalyse wo hotspot welche Themen durch lda, point data weak weil, dichte nicht klar ersichtlich, binnen good, density abbilden
+
+Autoencoder
+
+
+
+------
+Neural networks
+
+ Neural network is a mathematical function.
+• Models can be unsupervised or supervised.
+• Inspired by the brain.
+
+
+Outperforms other ML techs on large complex problems
+Small tweaks huge impact
+Getting stuck in local optima happens rarely here
+
+Extract semantic information important in
+Image recognition 
+Speech processing
+Nlp
+Robotic control
+
+Models of high complexity are needed, cannot design by hand
+
+Is a function y = fNN(x)
+fNN nested function
+Input layer, hidden layers, output layer, each connection has weight
+Activation function, non linear function that defines output
+
+
+We need activation function to allow neural notworks to learn complex relationship, not only linear relationships, bc in nn we chain linear transformation which at the end is a linear transformation, chaining does not change this fact, equivalent to single layer probably
+
+
+Sigmoid
+	differentiable
+	smooth function
+	problems, vanishing exploding gradient during backpropagation,
+	at the ends slope very small
+	output not zero centered, harder to optimize
+	0-1
+Tanh
+	-1-1
+	vanishing exploding gradient, squashes values same like sigmoid	
+	larger derivatives as sigmoid, faster than sigmoid
+	
+ReLu
+	efficient compute, converging quickly
+	dead neurone issue, having negative values on neurons
+
+Output Layer
+	either softmax or linear function
+	softmax classification, linear function for regression
+
+
+Loss functions for training
+	cross entropy for classification
+		comparing true and estimated distributions
+	MSE
+		for regression
+
+gradient descent to minimize loss error, moving to local minima with learn rate
+
+Backpropagaition
+	Propagates error through network
+	Compute gradients using chain rule, partial derivatives, to get how much that weight 		contributed to the error, from back to forward, because wanna know every weight
+	Network params receive update propotional to partial derivative of loss func
+
+
+
+Cnn for image processing
+Convolution + relu, pooling downsampling
+
+Autoencoder
+
+	Encoder kodiert und decoder enkodiert, wollen rec´konstruieren aus dem code vom decoder
+	Kompression zb gut 
+
+Generatative Adverbial network
+	generates data with same statistics as training set
+	generator und discriminator
+
+
+Regularisation against overfitting and high variance (we want good generalisation)
+Complexity Elixieren dass generaliaztion verhindert
+Usually training error increases and test error decreases
+Add a term to the loss function that penalises large weights
+
+regularisation added to loss error
+
+
+L1 Lasso 
+	produces space model
+	feature selection
+	model more explainable
+	good when much useless features
+	absolute value, penalty added
+L2 ridge
+	squared value of coefficient added penatly
+	good when all features relevant but don't want too high weights
+
+Dropout to prevent overfitting, random neutrons are dropped out during training
+
+Early stop stop when degraded prevent overfitting
+
+
+--------
+
+tSNE
+T-distributed stochastic neighbourhood embedding
+Non linear, for dimensionality reduction
+Global and local structure erhalten in reduzierter dimension
+
+Similiraity zw punkte durch gaussian zur distanz, normalisieren und symmetrisieren
+Sigma local scale set indirectly by perplexity P
+Small more local relationships, less neighbours, higher broader global relationships, more neighbours
+
+P number of neighbours of points in input space
+Set 5-50
+Output space instead of gauss, use t-distribution with 1 degree of freedom, more robust to outliers, no crowding
+Normalise s
+
+Reduce crowding effects with t distribution
+Its not as high sa normal and tails are taller
+
+S should be s
+
+(Similarities in glass and t, high and low dim)
+Normalised thus probability distributions
+Loss function kullback-leibler zum minimieren
+
+P true distribution and Q model of P, theory, gradient descent used 
+Initially puts points in reduced space, moves points along gradient, iterate until no changes
+
+
+Points near in input space, attracted and points far in input space repelled
+Optimisation is not deterministic
+Number of iterations what
+
+Good with non linear data, preservers local and global structure
+Bad complex, non deterministic, parameter tuning necessary, noisy patterns
+
+------------
+
+
+Generative AI
+	
+Geneiriert artifacts aus den daten, weniger auf an wert und klasse discrimanten sondern, was neues kreatives leisten
+
+Tex2img
+3d object generation
+Domain style transfer
+Data generation enrich data
+Hig res images
+
+Generative AI is a type of AI that learns
+about artifacts from data, and then
+generates new creations that are similar
+to the original but don’t repeat it.
+
+Generative arts refers to art that in whole or in part has been created with the use
+of an autonomous system
+
+Variational autoencoders
+Generative adversial networks
+Diffusion models
+
+
+Autoencoders learn latent representation, lower dimensionality
+Compression,
+feature detectors,
+unsupervised pretrainting of deep neural networks
+
+Variational autoencoder uses bases theorem to find good approximation of data distribution
+Knows data distribution
+Can get random coding from guassian distribution of latent space and decoder generates something new
+
+Latent vector is given to decoder
+
+Generative Adversarial Network GAN
+2 neural netowrk compete against each other
+
+Generator takes random input, latent vector and generates image
+
+Discrimatior must guess if image is fake or is a real image of the training set,
+Generator is trained so long so that discriminator cannot tell difference
+
+
+Discriminator bekommt real data samples zum trainieren
+Danach generator generated randomly -> discrimator guesses -> fake -> finetuning von generator -> repeat
+
+
+Each training divided into 2 training phases
+
+Train discriminator with real and fake label, binary cross entropy loss, backpropagation only on discrimator weights
+
+Train the generator by generating fake images and the discriminator tell if fake or not, backpropagation to update weights of generator
+
+Generator never sees real images, learns to produce fake images, goal is to force discriminator to guess
+
+Mode collapse: Difficulties, output less diverse, fails to capture full diversity. focus on one class, class changes when discriminator forgets to discriminate that class, generator follows, if discriminator fails to distinguish between classes -> mode collapse
+Mode collapse ignores the full diversity of target distribution, fixiert auf einen typ subset
+
+How to prevent mode collapse:
+Experience replay: train discriminator with new images of generator and other images
+
+Mini-batch discrimination: measures how similar images are across the batch and discriminator rejects if too similar, not divers
+
+Gan unstable for large images
+Instead of pooling, strided (discriminator) and transposed convolution (generator)
+Batch normalisation -> stabile training and faster
+Fully connected hidden layers removed
+
+
+Leaky rely bc of dead neurone
+
+Tanh images between -1, 1
+
+
+Diffusion models easier to train, generate images higher qujalit and diverse, long time to generate
+
+Idea: mixed state of images, have noise, reduce noise gradually and generate image through that
+
+
+
+Forward -> add gaussian noise
+Reverse -> remove noise
+
+Diffusion in latent space, with autencoder, autencoder gives latent representation, add noise to that instead, faster
+
+
+
+
+Large Language Models
+Part of DL, GenAi und LLM part of DL, LLM and GenAI intersect
+GenAI produces new content
+
+What are LLM
+Large general purpose language model that can be pertained and fine tuned for purposes
+
+Pre-trained on language understand language, to solve common language problems
+Text classification, question answering, doc summarisation, text generation
+
+Fine-tuned to solve specific problems, retai, finance, entertainment, small size of dataset necessary
+
+Large
+	petabyte data trained
+	high number of params
+
+General purpose
+	common problems of human language
+	resource restriction, cuz only big comps have that data, make model available to 		everyone
+
+Pre-train and fine-tune for own purposes
+
+Benefits LLM
+	single model can handle different tasks (answering, gen, classification, summarisation, 	prediction)
+	fine-tune minimal field data needed, little domain training data few shot, (zero shot 		can handle unseen stuff)
+	performance grows with more data and params	
+	
+Transformer model
+	encoder
+	decoder
+	
+Trad programming
+Writing Rules
+Neural network
+Train on specific data, to classify cats
+genAI
+Train on all kind of data solve multiple tasks, we can generate our own content
+
+Developing LLM 
+Needs no expertise
+No training examples
+No training model
+Just prompt design
+
+In traditional ML we need to train mode, have data, compute and stuff
+
+Prompt design
+Is process of creating prompts to get desired response from LLM, instructions and context are based to LLM to achieve desired task, angepasst für einen speficic task
+
+Prompt engineering
+Developing and optimising prompts to efficiently use LLM for apps, accuracy und performance steigern
+
+3 kinds of LLM
+
+Generic
+	predict the next word based on training data
+	can get confused, wie autocomplete
+
+Interaction tuned
+	trained to predict response of given instruction
+	can get confused
+	
+
+Dialog tuned
+	trained to have a dialog by predicting next response
+
+
+Chain of thought reasoning
+	llm more likely to answer right when first output has reason for answer
+
+Nicht verlässlich wenn sie alles tun können, deswegen tunen
+Vielleicht nur wenige tasks notwendig
+Model anpassen so dass nur diese tasks oder Kontext und domain arbeitet zb nur Medizin
+
+
+Fine-tune own data retrain model weights
+
+Fine-tuning expensive
+Parameter-efficient tuning methods better, only some add on layers are tuned
+Not duplicating model
+
+Prompt tuning is easiest
+
+
+
+	
+	
+	
+
+
+
+			
+
+			
+
+
+		 
+	
+
+
